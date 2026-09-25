@@ -21,3 +21,9 @@ jobs:
         run: npm install --global @anthropic-ai/claude-code
       - name: Validate plugin and marketplace metadata
         run: claude plugin validate --strict .
+      - name: Install from the local marketplace
+        run: |
+          claude plugin marketplace add "$GITHUB_WORKSPACE"
+          claude plugin install contentflow365@contentflow365 --scope user
+          claude plugin list | tee /tmp/contentflow-claude-plugin-list.txt
+          grep -F 'contentflow365@contentflow365' /tmp/contentflow-claude-plugin-list.txt
