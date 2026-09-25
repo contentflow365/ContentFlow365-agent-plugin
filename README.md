@@ -11,19 +11,19 @@ The `require_oauth=1` connection challenges at the initial handshake. Never plac
 
 For an OpenAI directory listing, use the same endpoint with `?tool_auth=1` in the portal after that server revision is deployed and verified. That mode advertises authentication per tool and returns an MCP OAuth challenge when a protected tool needs linking or wider scopes. The packaged manual-install URL above continues to use the initial HTTP challenge for existing clients. These are source instructions; neither mode establishes directory approval.
 
-## Install for testing
+## Connect from your assistant
 
 | Client | Path | What is installed |
 | --- | --- | --- |
 | ChatGPT / Codex | Register the URL as a custom remote MCP app in developer mode; for packaged skill testing, add this folder to a local plugin marketplace or upload the package through the plugin authoring flow. Complete OAuth in the client. | Remote tools; skill when package is installed. |
 | Claude / Claude Desktop | Customize → Connectors → Add custom connector, enter the URL, then connect the account. Team/Enterprise owners add the connector for their organization first. A custom plugin upload can carry the bundled skill. | Remote tools; skill when plugin is installed. |
-| Claude Code | For a one-session plugin test, run `claude --plugin-dir /absolute/path/to/contentflow365`, then inspect `/plugin` and use `/mcp` to complete OAuth and confirm the server is connected. For tools without the packaged skill, run `claude mcp add --transport http contentflow365 'https://mcp.contentflow365.com/api/mcp/mcp?require_oauth=1'`, then `/mcp`. After marketplace publication, install the plugin by its published marketplace name. | Remote tools and skill for plugin loading; tools only for MCP add. |
+| Claude Code | Install the public package with the [two commands below](#claude-code-install-from-the-contentflow365-marketplace), then use `/mcp` to authorize your ContentFlow365 account. For tools without the packaged skill, run `claude mcp add --transport http contentflow365 'https://mcp.contentflow365.com/api/mcp/mcp?require_oauth=1'`, then `/mcp`. | Remote tools and skill for plugin install; tools only for direct MCP. |
 | Cursor | Import the root Agent Plugin package or add the URL in Settings → MCP. The root `plugin.json` plus `mcp.json` and `skills/` are the Cursor-compatible package. | Remote tools and skill for plugin install; tools only for direct MCP. |
 | Grok on grok.com | Connectors → New Connector → Custom, enter the URL and authenticate. Business/Enterprise administrators provision it for their team. | Remote tools. No bundled skill/package support established in the cited Grok connector contract. |
 
 For the quickest Cursor connection, use [Add ContentFlow365 MCP to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=contentflow365&config=eyJ1cmwiOiJodHRwczovL21jcC5jb250ZW50ZmxvdzM2NS5jb20vYXBpL21jcC9tY3A/cmVxdWlyZV9vYXV0aD0xIn0%3D). Cursor must still prompt for OAuth. This link installs the MCP server only; the plugin skill is included when the full package is installed. For local package testing, copy the package folder to `~/.cursor/plugins/local/contentflow365`, reload Cursor and inspect Customize. The bare package is discovered there as one MCP server plus one skill; Customize → Add → From Local Repository instead expects a marketplace manifest and does not import a bare plugin folder. Cursor may require local plugin imports to be enabled by the workspace admin.
 
-These are authoring and custom-connector paths. This package does not claim that any public directory has accepted or listed ContentFlow365. The OAuth callback, consent, tool discovery and account-specific results must be tested in each client before calling that path verified. Never test a paid generation merely to check installation.
+The package is installable from its public GitHub marketplace; the other paths above are custom-connector or authoring routes. No public directory has accepted or listed ContentFlow365. OAuth callback, consent, tool discovery and account-specific results still need testing in each client before calling that connection verified. Never test a paid generation merely to check installation.
 
 ### Codex CLI: direct connection
 
@@ -67,6 +67,6 @@ claude plugin marketplace add contentflow365/ContentFlow365-agent-plugin
 claude plugin install contentflow365@contentflow365
 ```
 
-The marketplace entry lives in `.claude-plugin/marketplace.json` and points to this repository root. Installation still requires each user to authorize the remote MCP server with their own ContentFlow365 account.
+The marketplace entry lives in `.claude-plugin/marketplace.json` and points to this repository root. These commands [installed the public package successfully in a clean GitHub Actions runner](https://github.com/contentflow365/ContentFlow365-agent-plugin/actions/runs/36160825182); OAuth still requires each user to authorize the remote MCP server with their own ContentFlow365 account.
 
 Package files are published for installation and review. All rights are reserved unless ContentFlow365 grants a separate license. The private application repository is not part of this package.
