@@ -1,0 +1,23 @@
+{
+  "name": "contentflow365",
+  "version": "0.1.0",
+  "description": "Use ContentFlow365 through its account-scoped OAuth MCP server.",
+  "author": {
+    "name": "ContentFlow365"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "ContentFlow365",
+    "shortDescription": "Create with ContentFlow365",
+    "longDescription": "Use account-scoped tools and current product guidance, with credit estimates and clear confirmation before paid actions.",
+    "developerName": "ContentFlow365",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://www.contentflow365.com/",
+    "privacyPolicyURL": "https://www.contentflow365.com/es/privacidad",
+    "termsOfServiceURL": "https://www.contentflow365.com/es/terminos-y-condiciones",
+    "logo": "./assets/logo.png",
+    "defaultPrompt": "Show me what I can do in ContentFlow365 and check my credits before creating anything."
+  },
+  "mcpServers": "./.mcp.json"
+}

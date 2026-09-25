@@ -1,0 +1,10 @@
+{
+  "name": "contentflow365",
+  "version": "0.1.0",
+  "description": "Use ContentFlow365 through its account-scoped OAuth MCP connector and guided skills.",
+  "author": {
+    "name": "ContentFlow365"
+  },
+  "homepage": "https://www.contentflow365.com/mcp",
+  "repository": "https://github.com/contentflow365/ContentFlow365-agent-plugin"
+}

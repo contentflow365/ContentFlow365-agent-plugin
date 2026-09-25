@@ -1,0 +1,14 @@
+{
+  "name": "contentflow365",
+  "description": "ContentFlow365 agent workflows and OAuth MCP connection",
+  "owner": {
+    "name": "ContentFlow365"
+  },
+  "plugins": [
+    {
+      "name": "contentflow365",
+      "source": "./",
+      "description": "Connect Claude Code to ContentFlow365 with OAuth and guided workflows"
+    }
+  ]
+}
