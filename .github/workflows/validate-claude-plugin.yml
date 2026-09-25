@@ -27,3 +27,22 @@ jobs:
           claude plugin install contentflow365@contentflow365 --scope user
           claude plugin list | tee /tmp/contentflow-claude-plugin-list.txt
           grep -F 'contentflow365@contentflow365' /tmp/contentflow-claude-plugin-list.txt
+
+  remote-install:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Claude Code on the GitHub runner
+        run: npm install --global @anthropic-ai/claude-code
+      - name: Install from the public GitHub marketplace
+        env:
+          CLAUDE_CODE_PLUGIN_PREFER_HTTPS: '1'
+        run: |
+          claude plugin marketplace add contentflow365/ContentFlow365-agent-plugin
+          claude plugin install contentflow365@contentflow365 --scope user
+          claude plugin list | tee /tmp/contentflow-claude-remote-plugin-list.txt
+          grep -F 'contentflow365@contentflow365' /tmp/contentflow-claude-remote-plugin-list.txt
