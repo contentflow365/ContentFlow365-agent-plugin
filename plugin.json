@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "Use ContentFlow365 through its account-scoped OAuth MCP server.",
   "author": {
-    "name": "ContentFlow365",
+    "name": "ContentFlow",
     "url": "https://app.contentflow365.com"
   },
   "homepage": "https://www.contentflow365.com/",
@@ -20,7 +20,7 @@
         "displayName": "ContentFlow365",
         "shortDescription": "Create with ContentFlow365",
         "longDescription": "Use account-scoped tools and current product guidance, with credit estimates and clear confirmation before paid actions.",
-        "developerName": "ContentFlow365",
+        "developerName": "ContentFlow",
         "category": "Productivity",
         "capabilities": [
           "Read",
