@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "Use ContentFlow365 through its account-scoped OAuth MCP server.",
   "author": {
-    "name": "ContentFlow",
+    "name": "ContentFlow365",
     "email": "support@contentflow365.com",
     "url": "https://www.contentflow365.com"
   },
@@ -12,7 +12,7 @@
     "displayName": "ContentFlow365",
     "shortDescription": "Create with ContentFlow365",
     "longDescription": "Create Personas, content, avatars and videos from your assistant. Explore your ContentFlow365 workspace, check current credit estimates before paid actions, and see your changes in the platform.",
-    "developerName": "ContentFlow",
+    "developerName": "ContentFlow365",
     "category": "Productivity",
     "capabilities": ["Read", "Write"],
     "websiteURL": "https://www.contentflow365.com/mcp",
