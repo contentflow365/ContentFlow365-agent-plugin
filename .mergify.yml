@@ -1,0 +1,35 @@
+# Candidate only: not installed, activated or merged.
+# Existing package CI job: validate (strict Claude validation + local installation).
+merge_queue:
+  max_parallel_checks: 1
+  mode: serial
+
+queue_rules:
+  - name: package
+    queue_conditions:
+      - base=main
+      - -draft
+      - -closed
+      - -conflict
+      - label=prod-go
+      - check-success=validate
+    merge_conditions:
+      - -conflict
+      - label=prod-go
+      - check-success=validate
+    batch_size: 1
+    checks_timeout: 20 min
+    merge_method: merge
+
+pull_request_rules:
+  - name: Queue approved package releases after validation
+    conditions:
+      - base=main
+      - -draft
+      - -closed
+      - -conflict
+      - label=prod-go
+      - check-success=validate
+    actions:
+      queue:
+        name: package
